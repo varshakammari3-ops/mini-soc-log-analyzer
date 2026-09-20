@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mini SOC Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🛡️ <span>Mini SOC</span>
+        </div>
+
+        <nav>
+            <a class="active">📊 Dashboard</a>
+            <a>🚨 Security Alerts</a>
+            <a>📋 Log Analysis</a>
+            <a>🌐 IP Monitoring</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <p>System Status</p>
+
+            <span class="status">
+                <span class="dot"></span>
+                Monitoring Active
+            </span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+
+                <h1>Security Operations Center</h1>
+
+                <p>
+                    Authentication Log Monitoring & Threat Detection
+                </p>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button id="scanButton" class="scan-button">
+                    🔄 Re-scan Logs
+                </button>
+
+                <div class="top-status">
+
+                    <span class="live-dot"></span>
+
+                    LIVE
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📄
+                </div>
+
+                <div>
+
+                    <p>Total Logs</p>
+
+                    <h2 id="totalLogs">
+                        --
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon warning">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <p>Failed Logins</p>
+
+                    <h2 id="failedLogins">
+                        --
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon danger">
+                    🚨
+                </div>
+
+                <div>
+
+                    <p>Suspicious IPs</p>
+
+                    <h2 id="suspiciousIPs">
+                        --
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon safe">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>System Status</p>
+
+                    <h2 class="online">
+                        Online
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Security Alerts -->
+        <section class="alert-section">
+
+            <div class="section-title">
+
+                <h2>
+                    🚨 Security Alerts
+                </h2>
+
+                <span class="alert-count">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="alert-box">
+
+                <div class="alert-icon">
+                    !
+                </div>
+
+
+                <div class="alert-content">
+
+                    <h3>
+                        Possible Brute-Force Activity
+                    </h3>
+
+                    <p>
+                        Multiple failed login attempts detected.
+                    </p>
+
+
+                    <div class="alert-details">
+
+                        <span id="alertIP">
+                            🌐 IP: Loading...
+                        </span>
+
+                        <span id="alertAttempts">
+                            🔑 Failed Attempts: Loading...
+                        </span>
+
+                        <span id="alertSeverity">
+                            ⚠️ Severity: Loading...
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Analysis -->
+        <section class="analysis">
+
+
+            <!-- IP Analysis -->
+            <div class="panel">
+
+                <div class="section-title">
+
+                    <h2>
+                        📊 Failed Attempts by IP
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="bar-chart"
+                    id="ipChart"
+                >
+
+                    <p style="color:#9ca3af;">
+                        Loading IP data...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Detection Rules -->
+            <div class="panel">
+
+                <div class="section-title">
+
+                    <h2>
+                        🔍 Detection Rules
+                    </h2>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <span>
+                        Failed Login Threshold
+                    </span>
+
+                    <strong>
+                        ≥ 5
+                    </strong>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <span>
+                        Brute-Force Detection
+                    </span>
+
+                    <span class="enabled">
+                        ENABLED
+                    </span>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <span>
+                        IP Tracking
+                    </span>
+
+                    <span class="enabled">
+                        ENABLED
+                    </span>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <span>
+                        Log Monitoring
+                    </span>
+
+                    <span class="enabled">
+                        ENABLED
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Scan Information -->
+        <div class="scan-info">
+
+            <span id="lastScan">
+                Last scan: Waiting...
+            </span>
+
+            <span>
+                Source: sample_auth.log
+            </span>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <p>
+                Mini SOC Log Analyzer • Security Monitoring Dashboard
+            </p>
+
+            <p>
+                Python + Flask + HTML + CSS + JavaScript
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+===== MINI SOC SECURITY REPORT =====
+Total log entries: 12
+Failed login attempts: 9
+
+Failed attempts by IP:
+192.168.1.50: 6
+192.168.1.25: 1
+192.168.1.30: 2
+
+Security Alerts:
+ALERT: Possible brute-force activity from 192.168.1.50 (6 failed attempts)
