@@ -1,63 +1,39 @@
-# Mini SOC Log Analyzer
+# 🛡️ Mini SOC Log Analyzer
 
-A Python-based Security Operations Center (SOC) tool that analyzes authentication logs, detects repeated failed login attempts, identifies suspicious IP addresses, and generates a security report.
+A Python-based Security Operations Center (SOC) dashboard that analyzes authentication logs, detects repeated failed login attempts, identifies suspicious IP addresses, and generates security alerts.
 
-## Features
+The project includes a web-based dashboard built with Flask, HTML, CSS, and JavaScript for visualizing security events.
 
-- Parses authentication log files
-- Counts failed login attempts
-- Groups failed attempts by IP address
-- Detects possible brute-force activity
-- Generates a security report
-- Uses a configurable alert threshold
+---
 
-## Technologies
+## 🚀 Features
 
-- Python 3
-- File handling
-- String parsing
-- Dictionaries
-- Basic security log analysis
+- 📋 Authentication log analysis
+- 🔐 Failed login detection
+- 🌐 IP-based activity tracking
+- 🚨 Brute-force activity detection
+- 📊 Security statistics dashboard
+- 🔎 Configurable detection threshold
+- 🔄 Real-time log re-scan from the dashboard
+- 📄 Automatic security report generation
+- 💻 Responsive web interface
+- 🔌 Flask API for security data
 
-## How It Works
+---
 
-The analyzer reads `sample_auth.log` and searches for `LOGIN_FAILED` events.
-
-If an IP address generates 5 or more failed login attempts, the tool generates a security alert for possible brute-force activity.
-
-## Example Detection
-
-```text
-[ALERT] Possible brute-force activity from 192.168.1.50 - 6 failed attempts
-
-Output
-
-The program generates:
-
-security_report.txt
-
-The report contains:
-
-Total log entries
-Total failed login attempts
-Failed attempts by IP address
-Security alerts
-Security Note
-
-The included log file contains fictional test data only. No real credentials or authentication logs are used.
-
-Purpose
-
-This project demonstrates basic SOC and security monitoring concepts, including log analysis, event detection, IP-based investigation, and automated alert generation.
-
-
-Save it with **Ctrl + S**.
-
-After saving, your project should have:
+## 🏗️ Project Structure
 
 ```text
 mini-soc-log-analyzer/
+│
+├── app.py
 ├── log_analyzer.py
 ├── sample_auth.log
 ├── security_report.txt
-└── README.md
+├── README.md
+├── .gitignore
+│
+└── web/
+    ├── index.html
+    ├── style.css
+    └── script.js
